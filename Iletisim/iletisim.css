@@ -1,0 +1,117 @@
+/* İletişim sayfasına özel ana başlık stili */
+.contact-main-title {
+    font-family: 'Dancing Script', cursive;
+    color: #d63384;
+    font-size: 3rem;
+    margin-top: 2rem;
+}
+
+/* Kişi kartı stilleri */
+.person-card {
+    background-color: #ffffff;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 2.5rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    height: 100%; /* Kartların aynı yükseklikte olmasını sağlar */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.person-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.person-card .profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    border: 4px solid #ffb6c1; /* Pembe çerçeve */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.person-card h3 {
+    font-family: 'Dancing Script', cursive;
+    color: #e91e63;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.person-card p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+/* Sosyal medya ikonları kapsayıcısı */
+.social-links {
+    margin-top: 1.5rem;
+    display: flex; /* İkonları yan yana sırala */
+    flex-wrap: wrap; /* Küçük ekranlarda alt satıra geçmelerine izin ver */
+    justify-content: center; /* Ortala */
+    gap: 15px; /* İkonlar arası boşluk */
+}
+
+.social-links a {
+    display: inline-block; /* Linkleri bir blok gibi davranmasını sağla */
+    transition: transform 0.2s ease-in-out;
+}
+
+.social-links a:hover {
+    transform: scale(1.15); /* İkonlara hover efekti */
+}
+
+.social-links img {
+    width: 40px; /* İkon boyutu */
+    height: 40px;
+    object-fit: contain; /* İkonların bozulmadan sığmasını sağla */
+}
+
+/* Diğer bilgiler için özel stil (telefon, adres) */
+.contact-info-item {
+    font-size: 1.05rem;
+    color: #444;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* İçeriği ortala */
+    margin-bottom: 0.8rem;
+}
+
+.contact-info-item strong {
+    color: #d63384;
+    margin-right: 8px;
+    font-weight: 600;
+}
+
+/* Gmail linkleri için özel stil */
+.contact-info-item.gmail-link {
+    font-size: 1.05rem;
+    color: #007bff; /* Mavi renk link */
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* Küçük ekranlarda düzenlemeler */
+@media (max-width: 767.98px) {
+    .person-card {
+        padding: 1.5rem;
+    }
+    .person-card h3 {
+        font-size: 1.8rem;
+    }
+    .person-card .profile-img {
+        width: 120px;
+        height: 120px;
+    }
+    .social-links img {
+        width: 35px;
+        height: 35px;
+    }
+}
