@@ -1,5 +1,5 @@
-// Birliktelik başlangıç tarihi: 18 Ocak 2023, 00:00:00
-const startDate = new Date('2023-01-18T00:00:00');
+// Birliktelik başlangıç tarihi: 05 Mart 2022, 00:00:00
+const startDate = new Date('2022-03-05T00:00:00');
 
 /**
  * Aşk sayacını günceller.
