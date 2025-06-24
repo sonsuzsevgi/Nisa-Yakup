@@ -1,9 +1,113 @@
+/* Genel gövde ayarları - main.css'ten */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #fffafc;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header ve Navbar Stilleri - main.css'ten */
+header {
+    /* Genel header stilleri, gerekirse */
+}
+
+.navbar-brand {
+    font-family: 'Dancing Script', cursive;
+    color: #d63384 !important;
+    font-size: 1.8rem;
+}
+
+.navbar-nav .nav-link {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #6c757d;
+    margin-right: 15px;
+    transition: color 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ff69b4;
+}
+/* Navbar aktif link rengi */
+.navbar-nav .nav-link.active {
+    color: #d63384 !important; /* Pembe renk */
+    font-weight: 700;
+}
+
+/* Hero Bölümü Stilleri - main.css'ten */
+.hero {
+    background: linear-gradient(135deg, #ffd1dc, #ffe4e9);
+    height: 80vh; /* İstediğiniz yüksekliği burada ayarlayabilirsiniz */
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4rem;
+    color: #d63384;
+    margin-bottom: 0.5rem;
+}
+
+.hero p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    color: #6c757d;
+}
+
+/* Bootstrap ile uyumlu pembe buton - main.css'ten */
+.btn-pink {
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+}
+.btn-pink:hover {
+    background-color: #ff85c1;
+}
+
+/* Şifre giriş alanı (Eğer kullanılmıyorsa da genel stil olarak kalsın) - main.css'ten */
+#login-section {
+    margin-top: 2rem;
+}
+
+/* Galeri kartları (Eğer kullanılmıyorsa da genel stil olarak kalsın) - main.css'ten */
+.card-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.4rem;
+    color: #d63384;
+}
+
+.card-text {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* Footer Stilleri - main.css'ten */
+footer {
+    background-color: #f8f9fa; /* Bootstrap'in bg-light rengi */
+    color: #6c757d; /* Bootstrap'in text-muted rengi */
+    padding: 1.5rem 0;
+    margin-top: 3rem; /* Üstteki içerikle arasında boşluk bırakır */
+}
+
+/* Responsive kart ayarı (Müzik paneli kaldırıldığı için o kısım çıkarıldı) */
+@media (max-width: 768px) {
+    .card-title {
+        font-size: 1.2rem;
+    }
+}
+
 /* İletişim sayfasına özel ana başlık stili */
 .contact-main-title {
     font-family: 'Dancing Script', cursive;
     color: #d63384;
     font-size: 3rem;
-    margin-top: 2rem;
+    margin-top: 2rem; /* Hero bölümünden sonra daha az boşluk bırakabilir */
 }
 
 /* Kişi kartı stilleri */
@@ -16,7 +120,7 @@
     box-shadow: 0 6px 20px rgba(0,0,0,0.1);
     text-align: center;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    height: 100%; /* Kartların aynı yükseklikte olmasını sağlar */
+    height: 100%; 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -33,7 +137,7 @@
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 1.5rem;
-    border: 4px solid #ffb6c1; /* Pembe çerçeve */
+    border: 4px solid #ffb6c1; 
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
@@ -53,25 +157,25 @@
 /* Sosyal medya ikonları kapsayıcısı */
 .social-links {
     margin-top: 1.5rem;
-    display: flex; /* İkonları yan yana sırala */
-    flex-wrap: wrap; /* Küçük ekranlarda alt satıra geçmelerine izin ver */
-    justify-content: center; /* Ortala */
-    gap: 15px; /* İkonlar arası boşluk */
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 15px; 
 }
 
 .social-links a {
-    display: inline-block; /* Linkleri bir blok gibi davranmasını sağla */
+    display: inline-block; 
     transition: transform 0.2s ease-in-out;
 }
 
 .social-links a:hover {
-    transform: scale(1.15); /* İkonlara hover efekti */
+    transform: scale(1.15); 
 }
 
 .social-links img {
-    width: 40px; /* İkon boyutu */
+    width: 40px; 
     height: 40px;
-    object-fit: contain; /* İkonların bozulmadan sığmasını sağla */
+    object-fit: contain; 
 }
 
 /* Diğer bilgiler için özel stil (telefon, adres) */
@@ -80,7 +184,7 @@
     color: #444;
     display: flex;
     align-items: center;
-    justify-content: center; /* İçeriği ortala */
+    justify-content: center; 
     margin-bottom: 0.8rem;
 }
 
@@ -93,7 +197,7 @@
 /* Gmail linkleri için özel stil */
 .contact-info-item.gmail-link {
     font-size: 1.05rem;
-    color: #007bff; /* Mavi renk link */
+    color: #007bff; 
     text-decoration: underline;
     cursor: pointer;
 }

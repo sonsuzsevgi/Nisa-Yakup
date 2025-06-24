@@ -1,0 +1,58 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f8f9fa; /* Hafif gri arka plan */
+}
+
+.card {
+    border: none;
+    border-radius: 15px;
+    background-color: #fffafc; /* Hafif pembe tonlu beyaz */
+}
+
+.card-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: #d63384; /* Canlı pembe */
+}
+
+.card-text {
+    font-family: 'Montserrat', sans-serif;
+    color: #6c757d; /* Koyu gri */
+    font-size: 1.1rem;
+}
+
+.form-control-lg {
+    border-radius: 10px;
+    border: 1px solid #ffccd5; /* Açık pembe kenarlık */
+    padding: 0.75rem 1.25rem;
+    font-size: 1.1rem;
+}
+
+.form-control-lg::placeholder {
+    color: #adb5bd; /* Soluk gri placeholder */
+}
+
+.form-control-lg:focus {
+    border-color: #ff85c1; /* Odakta daha koyu pembe */
+    box-shadow: 0 0 0 0.25rem rgba(255, 105, 180, 0.25); /* Hafif pembe gölge */
+}
+
+.btn-pink {
+    background-color: #ff69b4; /* Pembe düğme */
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-pink:hover {
+    background-color: #ff85c1; /* Hover'da daha açık pembe */
+    color: white;
+}
+
+.text-danger {
+    color: #dc3545 !important; /* Kırmızı hata mesajı */
+    font-weight: 600;
+}
