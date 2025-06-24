@@ -1,0 +1,124 @@
+/* Genel gövde ayarları */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #fffafc;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header ve Navbar Stilleri */
+.navbar-brand {
+    font-family: 'Dancing Script', cursive;
+    color: #d63384 !important; 
+    font-size: 1.8rem; 
+}
+
+.navbar-nav .nav-link {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600; 
+    color: #6c757d; 
+    margin-right: 15px; 
+    transition: color 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ff69b4; 
+}
+
+/* Navbar aktif link rengi */
+.navbar-nav .nav-link.active {
+    color: #d63384 !important; /* Pembe renk */
+    font-weight: 700;
+}
+
+/* Hero Bölümü Stilleri */
+.hero {
+    background: linear-gradient(135deg, #ffd1dc, #ffe4e9);
+    min-height: 80vh; /* Daha kısa bir hero bölümü */
+    padding: 3rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5rem;
+    color: #d63384;
+    margin-bottom: 0.5rem;
+}
+
+.hero p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3rem;
+    color: #6c757d;
+}
+
+/* Biz Kimiz içeriği stilleri */
+#about-us-content {
+    padding: 4rem 0;
+}
+
+.section-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.section-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+.img-fluid.rounded-circle {
+    width: 250px; /* Profil fotoğrafları için sabit genişlik */
+    height: 250px; /* Profil fotoğrafları için sabit yükseklik */
+    object-fit: cover; /* Görüntüyü kesmeden doldur */
+    border: 5px solid #ffccd5; /* Açık pembe çerçeve */
+    transition: transform 0.3s ease-in-out;
+}
+
+.img-fluid.rounded-circle:hover {
+    transform: scale(1.05); /* Üzerine gelince hafif büyüme efekti */
+}
+
+/* Footer Stilleri */
+footer {
+    background-color: #f8f9fa; /* Bootstrap'in bg-light rengi */
+    color: #6c757d; /* Bootstrap'in text-muted rengi */
+    padding: 1.5rem 0;
+    margin-top: 3rem; 
+}
+
+/* Responsive Düzenlemeler */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+    .hero p {
+        font-size: 1.1rem;
+    }
+    .section-title {
+        font-size: 2rem;
+    }
+    .section-text {
+        font-size: 1rem;
+    }
+    .img-fluid.rounded-circle {
+        width: 180px;
+        height: 180px;
+    }
+    .col-md-6.order-md-2 {
+        order: initial !important; /* Mobil görünümde resmi üste al */
+    }
+    .col-md-6.order-md-1 {
+        order: initial !important; /* Mobil görünümde metni alta al */
+    }
+}

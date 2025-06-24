@@ -1,3 +1,60 @@
+// Birliktelik başlangıç tarihi: 05 Mart 2022, 00:00:00
+const startDate = new Date('2022-03-05T00:00:00');
+
+/**
+ * Aşk sayacını günceller.
+ */
+function updateLoveTimer() {
+    const now = new Date();
+    const diff = now.getTime() - startDate.getTime();
+
+    if (diff < 0) { 
+        const timerElement = document.getElementById('love-timer');
+        if (timerElement) {
+            timerElement.textContent = "Başlangıç bekleniyor...";
+        }
+        return;
+    }
+
+    let seconds = Math.floor(diff / 1000);
+    let minutes = Math.floor(seconds / 60);
+    let hours = Math.floor(minutes / 60);
+    let days = Math.floor(hours / 24);
+    let years = Math.floor(days / 365.25);
+    
+    days = Math.floor(days - (years * 365.25)); 
+    let months = Math.floor(days / 30.44); 
+    days = Math.floor(days % 30.44);
+
+    hours = hours % 24;
+    minutes = minutes % 60;
+    seconds = seconds % 60;
+
+    const timerElement = document.getElementById('love-timer');
+    const yearElement = document.getElementById('current-year');
+
+    if (timerElement) {
+        timerElement.textContent = 
+            `${years} yıl, ${months} ay, ${days} gün, ` +
+            `${hours.toString().padStart(2, '0')} saat, ` +
+            `${minutes.toString().padStart(2, '0')} dakika, ` +
+            `${seconds.toString().padStart(2, '0')} saniye`;
+    }
+    if (yearElement) { 
+        yearElement.textContent = now.getFullYear();
+    }
+}
+
+/**
+ * Aşk sayacını başlatır ve her saniye güncellenmesini sağlar.
+ */
+function startLoveTimer() {
+    if (document.getElementById('love-timer')) {
+        updateLoveTimer(); 
+        setInterval(updateLoveTimer, 1000); 
+    }
+}
+
 // Sosyal medya ikonlarının dosya isimleri (küçük harf ve boşluksuz)
 const socialMediaIcons = {
     'github': 'github.svg',
@@ -8,7 +65,8 @@ const socialMediaIcons = {
     'youtube': 'youtube.svg',
     'gmail': 'gmail.svg',
     'tiktok': 'tiktok.svg',
-    'pinterest': 'pinterest.svg'
+    'pinterest': 'pinterest.svg',
+    'snapchat': 'snapchat.svg'
 };
 
 /**
@@ -17,12 +75,13 @@ const socialMediaIcons = {
  */
 async function loadContactData() {
     try {
-        const response = await fetch('./hesaplar.txt'); // Aynı klasördeki hesaplar.txt
+        // Dosya yolu Iletisim klasörüne göre ayarlandı
+        const response = await fetch('./hesaplar.txt'); 
         if (!response.ok) {
             throw new Error(`Hesaplar.txt yüklenirken hata: ${response.status}`);
         }
         const text = await response.text();
-        const peopleData = text.split('---').map(personBlock => personBlock.trim()).filter(Boolean); // Her kişiyi '---' ile ayır
+        const peopleData = text.split('---').map(personBlock => personBlock.trim()).filter(Boolean); 
 
         const contacts = [];
 
@@ -39,21 +98,19 @@ async function loadContactData() {
             for (let i = 1; i < lines.length; i++) {
                 const line = lines[i];
                 const parts = line.split('->');
-                if (parts.length < 2) continue; // Geçersiz satırları atla
+                if (parts.length < 2) continue; 
 
-                const key = parts[0].toLowerCase(); // Anahtarı küçük harfe çevir
-                const value = parts.slice(1).join('->').trim(); // Değeri al
+                const key = parts[0].toLowerCase(); 
+                const value = parts.slice(1).join('->').trim(); 
 
-                // Boş değerleri veya sadece anahtarı olanları atla
                 if (value === '') continue;
 
                 if (key === 'foto') {
                     person.photo = value;
-                } else if (socialMediaIcons[key]) { // Eğer anahtar bir sosyal medya ikonuna karşılık geliyorsa
+                } else if (socialMediaIcons[key]) { 
                     person.social.push({ type: key, link: value });
                 } else {
-                    // Diğer bilgiler (telefon, adres gibi)
-                    if (person.info[key]) { // Eğer aynı anahtar daha önce eklenmişse (örn: birden fazla gmail)
+                    if (person.info[key]) { 
                         if (Array.isArray(person.info[key])) {
                             person.info[key].push(value);
                         } else {
@@ -82,23 +139,23 @@ async function displayContacts(contacts) {
     const container = document.getElementById('contact-cards-container');
     if (!container) return;
 
-    container.innerHTML = ''; // İçeriği temizle
+    container.innerHTML = ''; 
 
     for (const person of contacts) {
         const colDiv = document.createElement('div');
-        colDiv.className = 'col-md-6 mb-4 d-flex align-items-stretch'; // Yan yana ve aynı yükseklikte olmaları için
+        colDiv.className = 'col-md-6 mb-4 d-flex align-items-stretch'; 
 
         const cardDiv = document.createElement('div');
         cardDiv.className = 'person-card';
 
-        const profilePhotoPath = person.photo ? `./img/${person.photo}` : 'https://via.placeholder.com/150'; // Placeholder eğer fotoğraf yoksa
+        // Profil fotoğrafı yolu Iletisim/img klasörüne göre ayarlandı
+        const profilePhotoPath = person.photo ? `./img/${person.photo}` : 'https://via.placeholder.com/150'; 
 
         cardDiv.innerHTML = `
             <img src="${profilePhotoPath}" class="profile-img" alt="${person.name} Profil Resmi">
             <h3>${person.name}</h3>
         `;
 
-        // Telefon, adres gibi bilgileri ekle
         if (person.info.telefon) {
             cardDiv.innerHTML += `<p class="contact-info-item"><strong>Telefon:</strong> ${person.info.telefon}</p>`;
         }
@@ -106,7 +163,6 @@ async function displayContacts(contacts) {
             cardDiv.innerHTML += `<p class="contact-info-item"><strong>Adres:</strong> ${person.info.adres}</p>`;
         }
         
-        // Gmail adreslerini döngü ile ekle
         if (person.info.gmail) {
             const gmails = Array.isArray(person.info.gmail) ? person.info.gmail : [person.info.gmail];
             for (const gmail of gmails) {
@@ -114,11 +170,11 @@ async function displayContacts(contacts) {
             }
         }
 
-        // Sosyal medya linklerini ekle
         let socialLinksHtml = '<div class="social-links">';
         for (const social of person.social) {
             const iconFileName = socialMediaIcons[social.type];
             if (iconFileName) {
+                // Sosyal medya ikonları yolu Iletisim/img klasörüne göre ayarlandı
                 socialLinksHtml += `
                     <a href="${social.link}" target="_blank" rel="noopener noreferrer" aria-label="${social.type}">
                         <img src="./img/${iconFileName}" alt="${social.type} İkon">
@@ -140,6 +196,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const path = window.location.pathname;
     if (path.includes('/Iletisim/iletisim.html') || path.includes('/iletisim/iletisim.html')) {
         const contacts = await loadContactData();
-        displayContacts(contacts);
+        await displayContacts(contacts); // await ile bekletiyoruz
+        startLoveTimer(); // Veriler yüklendikten sonra sayacı başlat
     }
 });
