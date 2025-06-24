@@ -8,7 +8,7 @@ function checkPassword() {
     const msg = document.getElementById("login-message");
 
     if (input === PASSWORD) {
-        window.location.href = "main/main.html"; // Şifre doğruysa main/main.html'e yönlendir
+        window.location.href = "Main/main.html"; // Şifre doğruysa main/main.html'e yönlendir
     } else {
         msg.textContent = "Şifre yanlış!";
     }
