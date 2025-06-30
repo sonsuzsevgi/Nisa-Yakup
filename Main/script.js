@@ -1,6 +1,6 @@
 const PASSWORD = "1234";
 let currentTrack = 1;
-const totalTracks = 5; 
+const totalTracks = 6; 
 const totalPhotos = 23;
 // Birliktelik başlangıç tarihi: 05 Mart 2022, 00:00:00
 const startDate = new Date('2022-03-05T00:00:00');
