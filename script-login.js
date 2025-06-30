@@ -1,4 +1,4 @@
-const PASSWORD = "1234"; // Şifrenizi buraya girin
+const PASSWORD = "30haziran2005"; // Şifrenizi buraya girin
 
 /**
  * Giriş şifresini kontrol eder ve doğruysa main.html'e yönlendirir.

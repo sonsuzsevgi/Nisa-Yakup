@@ -1,3 +1,6 @@
-Bu 21.Resim
-Sadece sitede durması için öylesine koyulmuştur.
-Sıra ile basılmaktadır.
+Ayna
+N-> Aynada fotoğraf çekildiğimiz için mutlusun değil mi Yakup?
+Y-> Mutluyum.
+N-> De, Aynada fotoğraf çekildiğimiz için mutluyum. Söyle.
+Y-> Aynada fotoğraf çekildiğimiz için mutluyum.
+N-> He tamam.
